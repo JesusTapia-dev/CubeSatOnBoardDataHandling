@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build main.exe",
+            "type": "cppbuild",
+            "command": "cl.exe",
+            "args": [
+                "/I${workspaceFolder}\\include\\",
+                "/I${FREERTOS_PATH}\\FreeRTOS\\Source\\include\\",
+				"/I${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MSVC-MingW\\",
+                "/EHsc",
+                "/nologo",
+                "/Fe:",
+                "CubeSatProject.exe",
+                "src/*.c",
+                "${FREERTOS_PATH}\\FreeRTOS\\Source\\croutine.c",
+                "${FREERTOS_PATH}\\FreeRTOS\\Source\\event_groups.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\tasks.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\queue.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\timers.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\list.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MemMang\\heap_3.c",
+				"${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MSVC-MingW\\port.c"
+                
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$msCompile"],
+            "detail": "Generated task by Debugger."
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "freertos.h": "c",
+        "task.h": "c",
+        "system_init.h": "c",
+        "state_handler.h": "c",
+        "windows.h": "c",
+        "stdio.h": "c",
+        "semphr.h": "c",
+        "nominal.h": "c",
+        "deployment.h": "c",
+        "boot.h": "c"
+    }
+}
