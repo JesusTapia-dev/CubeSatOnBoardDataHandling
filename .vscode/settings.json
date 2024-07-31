@@ -9,6 +9,8 @@
         "semphr.h": "c",
         "nominal.h": "c",
         "deployment.h": "c",
-        "boot.h": "c"
+        "boot.h": "c",
+        "tasksobc.h": "c",
+        "transmitting.h": "c"
     }
 }

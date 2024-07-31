@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build main.exe",
+            "label": "build CubeSatProject.exe",
             "type": "cppbuild",
             "command": "cl.exe",
             "args": [
@@ -13,7 +13,15 @@
                 "/nologo",
                 "/Fe:",
                 "CubeSatProject.exe",
-                "src/*.c",
+                "src/boot.c",
+                "src/deployment.c",
+                "src/main.c",
+                "src/transmitting.c",
+                "src/nominal.c",
+                "src/safe.c",
+                "src/state_handler.c",
+                "src/system_init.c",
+                "src/tasksobc.c",
                 "${FREERTOS_PATH}\\FreeRTOS\\Source\\croutine.c",
                 "${FREERTOS_PATH}\\FreeRTOS\\Source\\event_groups.c",
 				"${FREERTOS_PATH}\\FreeRTOS\\Source\\tasks.c",
@@ -30,6 +38,22 @@
             },
             "problemMatcher": ["$msCompile"],
             "detail": "Generated task by Debugger."
+        },
+        {
+            "label": "clean up",
+            "type": "shell",
+            "command": "del ${workspaceFolder}\\*.obj",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+  //         , "dependsOn": "build CubeSatProject.exe"
         }
+
+
+
+
+
     ]
 }

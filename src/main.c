@@ -5,6 +5,7 @@
 #include "system_init.h"
 // #include "queue.h" 
 // #include "windows.h"
+
 void vAssertCalled(void) { 
     taskDISABLE_INTERRUPTS();
     for( ;; );
@@ -20,7 +21,7 @@ void vTaskTest(void *pvParameters) {
 
 int main(void) {
     // Inicialización del sistema
-    SystemInit();
+   //  SystemInit();
 
     // Creación de la tarea de gestión de estados
     xTaskCreate(vTaskStateHandler, "StateHandler", 1000, NULL, 3, NULL);

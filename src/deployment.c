@@ -1,20 +1,17 @@
 #include "deployment.h"
-#include "state_handler.h"
-#include "FreeRTOS.h"
-#include "task.h"
-int deploy=0;
+
+int antenna_released(){
+    /*
+        brief: revisa si la antena es desplegada 
+        accede a la información de adcs y 
+    */
+   return 1;
+} 
 void vTaskDeployment(void *pvParameters) {
-    // Código para desplegar antenas y paneles solares
-    // ...
-    for(;;){
-        deploy=deploy+1;
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-        if(deploy>10){
-            printf("Error en el despliegue\n");
-            break;
-        } 
-    }
-    
-    // Transición al siguiente estado
-    currentState = STATE_NOMINAL;
+
+    //Intentamos 5 intentos de desplegar la antena 
+    printf("Estado Deployment\n");
+     // Transición al siguiente estado
+    if(antenna_released())    currentState = STATE_NOMINAL;
+    else currentState = STATE_SAFE;
 }
