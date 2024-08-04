@@ -23,4 +23,3 @@ void vTaskBoot(void *pvParameters) {
         trydeploy++;
     }
 }
-

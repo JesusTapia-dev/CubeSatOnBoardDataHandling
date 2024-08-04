@@ -3,9 +3,10 @@
 #include "state_handler.h"
 #include <stdio.h>
 #include "system_init.h"
+#include "tc_prueba.h"
+
 // #include "queue.h" 
 // #include "windows.h"
-
 void vAssertCalled(void) { 
     taskDISABLE_INTERRUPTS();
     for( ;; );
@@ -21,13 +22,19 @@ void vTaskTest(void *pvParameters) {
 
 int main(void) {
     // Inicialización del sistema
-   //  SystemInit();
+    SystemInit();
 
     // Creación de la tarea de gestión de estados
     xTaskCreate(vTaskStateHandler, "StateHandler", 1000, NULL, 3, NULL);
 
     // Creación de una tarea de prueba
-    xTaskCreate(vTaskTest, "TestTask", 1000, NULL, 2, NULL);
+    // xTaskCreate(vTaskTest, "TestTask", 1000, NULL, 2, NULL);
+
+    // Creación de la tarea de telecomando
+    xTaskCreate(vTaskTelecommand, "Telecommand", 1000, NULL, 2, NULL);
+
+    // Creación de la tarea de actualización de tiempo
+    xTaskCreate(vTaskTimeUpdate, "TimeUpdate", 1000, NULL, 2, NULL);
 
     // Inicio del scheduler
     vTaskStartScheduler();
