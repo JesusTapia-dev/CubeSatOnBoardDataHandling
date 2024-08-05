@@ -6,4 +6,5 @@
 
 void vTaskSafe(void *pvParameters);
 int emergencyState();
+// en esa funcion se coloca los parametros que mantienen al satelite en estado de emergencia
 #endif // SAFE_H
