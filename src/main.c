@@ -1,18 +1,19 @@
-#include "FreeRTOS.h"
-#include "task.h"
-#include "state_handler.h"
 #include <stdio.h>
+
+#include "FreeRTOS.h"
+#include "state_handler.h"
 #include "system_init.h"
-// #include "queue.h" 
+#include "task.h"
+#include "tasksobc.h"
+// #include "queue.h"
 // #include "windows.h"
-void vAssertCalled(void) { 
+void vAssertCalled(void) {
     taskDISABLE_INTERRUPTS();
-    for( ;; );
+    for (;;);
 }
 
-
 void vTaskTest(void *pvParameters) {
-    for(;;) {
+    for (;;) {
         printf("Corriendo vTaskTest...\n");
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
@@ -32,6 +33,6 @@ int main(void) {
     vTaskStartScheduler();
 
     // El programa no debería llegar aquí
-    for(;;);
+    for (;;);
     return 0;
 }

@@ -1,16 +1,23 @@
 #include "safe.h"
+
 #include "FreeRTOS.h"
 
-#include <windows.h>
-#include "queue.h" 
-#include "task.h"
-
 void vTaskSafe(void *pvParameters) {
-    for(;;) {
+    for (;;) {
         // Código para modo seguro
         // ...
         printf("estado safe \n");
-        // Delay para conservar energía
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        if (emergencyState()) {
+            while (emergencyState()) {
+                // Delay para conservar energía
+                vTaskDelay(1000 / portTICK_PERIOD_MS);
+                measureVoltageCurrent();
+                checkThermalControl_status();
+                checkADCS_status();
+            }
+        } else {
+            currentState = STATE_NOMINAL;
+            break;
+        }
     }
 }

@@ -1,16 +1,17 @@
-#include "FreeRTOS.h"
-#include "task.h"
 #include "state_handler.h"
+
+#include "FreeRTOS.h"
 #include "boot.h"
 #include "deployment.h"
-#include "safe.h"
 #include "nominal.h"
+#include "safe.h"
+#include "task.h"
 #include "transmitting.h"
 
 SystemState currentState = STATE_BOOT;
 
 void vTaskStateHandler(void *pvParameters) {
-    for(;;) {
+    for (;;) {
         switch (currentState) {
             case STATE_BOOT:
                 vTaskBoot(NULL);

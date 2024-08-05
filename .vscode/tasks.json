@@ -2,34 +2,53 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build main.exe",
+            "label": "build CubeSatProject.exe",
             "type": "cppbuild",
             "command": "cl.exe",
             "args": [
+                //"/I\"C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\include\"",
                 "/I${workspaceFolder}\\include\\",
-                "/I${FREERTOS_PATH}\\FreeRTOS\\Source\\include\\",
-				"/I${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MSVC-MingW\\",
+                "/I\"C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\include\"",
+                "/I\"C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\portable\\MSVC-MingW\"",
                 "/EHsc",
                 "/nologo",
-                "/Fe:",
-                "CubeSatProject.exe",
-                "src/*.c",
-                "${FREERTOS_PATH}\\FreeRTOS\\Source\\croutine.c",
-                "${FREERTOS_PATH}\\FreeRTOS\\Source\\event_groups.c",
-				"${FREERTOS_PATH}\\FreeRTOS\\Source\\tasks.c",
-				"${FREERTOS_PATH}\\FreeRTOS\\Source\\queue.c",
-				"${FREERTOS_PATH}\\FreeRTOS\\Source\\timers.c",
-				"${FREERTOS_PATH}\\FreeRTOS\\Source\\list.c",
-				"${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MemMang\\heap_3.c",
-				"${FREERTOS_PATH}\\FreeRTOS\\Source\\portable\\MSVC-MingW\\port.c"
-                
+                "/Fe:\"C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\CubeSatProject.exe\"",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\boot.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\deployment.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\main.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\transmitting.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\nominal.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\safe.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\state_handler.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\system_init.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\tasksobc.c",
+                "C:\\Users\\sarak\\OneDrive - UNIVERSIDAD NACIONAL DE INGENIERIA\\Desktop\\software_rtos_chasqui\\CubeSatOnBoardDataHandling\\src\\tc_prueba.c",
+                "C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\croutine.c",
+                "C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\event_groups.c",
+                "C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\tasks.c",
+                "C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\queue.c",
+                "C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\timers.c",
+                "C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\list.c",
+                "C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\portable\\MemMang\\heap_3.c",
+                "C:\\Users\\sarak\\Downloads\\FreeRTOSv202212.01\\FreeRTOSv202212.01\\FreeRTOS\\Source\\portable\\MSVC-MingW\\port.c"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": ["$msCompile"],
+            "problemMatcher": [
+                "$msCompile"
+            ],
             "detail": "Generated task by Debugger."
+        },
+        {
+            "label": "clean up",
+            "type": "shell",
+            "command": "del \"${workspaceFolder}\\*.obj\"",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
         }
     ]
 }
